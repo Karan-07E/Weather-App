@@ -1,1 +1,0 @@
-#weather app using react js and openweathermap api.
