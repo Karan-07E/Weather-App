@@ -10,7 +10,7 @@ const fetchweather = async() => {
   if(!city){
     alert('Enter a valid city name');
   }
-  const api = '17652006d301c86da1184e8a31997ea0';
+  const api = '17652006d301c86da1184e8a31997e0';
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
   try{
     const response = await axios.get(url);
