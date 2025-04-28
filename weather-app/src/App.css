@@ -78,3 +78,13 @@ body {
   text-align: center;
   margin: 5px;
 }
+
+.errors{
+  color: red;
+  margin: 15px;
+  padding: 15px;
+  background-color: #555;
+  font-size: 15px;
+  border-radius: 1em;
+  font-style: italic;
+}

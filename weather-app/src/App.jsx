@@ -5,19 +5,22 @@ import './App.css'
 const weatherapp = () =>{
 const [city, setcity] = useState('');
 const [weather, setweather] = useState(null);
+const [error, setError] = useState('');
 
 const fetchweather = async() => {
   if(!city){
-    alert('Enter a valid city name');
+    setError('Enter a valid city name');
+    return;
   }
   const api = '17652006d301c86da1184e8a31997e0';
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
   try{
     const response = await axios.get(url);
     setweather(response.data);
+    setError('');
   }
   catch(error){
-    alert("error fetching the data", error);
+    setError("Error fetchcing the data, please enter a valid city and try again");
   }
  }
 
@@ -34,7 +37,7 @@ return(
                 />
                 <button onClick={fetchweather}>Get Weather</button>
             </div>
-
+            {error && <p className='errors'>{error}</p>}
             {weather && (
                 <div className="output-container">
                     <h2>{weather.name}</h2>
@@ -52,3 +55,5 @@ return(
 };
 
 export default weatherapp;
+
+//suggestions bar to be added...
